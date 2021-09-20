@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="/css/main-css/css1.css" rel="stylesheet">
+	<title> Welcome </title>
+	<link rel="stylesheet" type="text/css" href="css/main-css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main-css/font-awesome.css">
+	<link rel="stylesheet" href="css/main-css/templatemo-softy-pinko.css">
+	<link rel="stylesheet" href="/css/main-css/style-home.css">
+</head>
+<body>
+	<header class="header-area header-sticky">
+		<div class="welcome-area" id="welcome">
+			<div class="container ">
+				<div class="d-flex justify-content-center">
+					<form action='/upload_file' method='post' enctype="multipart/form-data">
+						<input type='file' name='foo' value='Load Files' multiple required>
+						<input type='Submit' value='Upload'>
+					</form>
+					<form action='/user_config' method='get'>
+						<input type='submit' value='Settings'>
+					</form>
+					<form action='/logout' method='post'>
+						<input type='submit' value='Logout'>
+					</form>
+				</div>
+				<ul>
+					<% user_files.forEach((file) => { %>
+					  <l1>
+						<%= file %>
+						<form action = 'delete_file' method = 'post'>
+						  <input type = 'hidden' value = '<%= file %>'>
+						  <input type = 'submit'>
+						</form>
+					  </li>
+					<% }); %>
+				  </ul>
+				<div class="d-flex justify-content-center">
+					<form action='/delete_all' method='post'>
+						<input type='submit' value='Delete all'>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+	<script src="/scripts/jquery-2.1.0.min.js"></script>
+	<script src="/scripts/scrollreveal.min.js"></script>
+	<script src="/scripts/jquery.counterup.min.js"></script>
+	<script src="/scripts/custom.js"></script>
+
+</body>
+
+</html>

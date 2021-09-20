@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main-css/bootstrap-userconfig.min.css">
+    <link rel="icon" type="image/png" href="css/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/main-css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main-css/main.css">
+    <link rel="stylesheet" href="/css/main-css/style-config.css">
+
+    <title>Settings</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4 pb-5">
+                <!-- Account Sidebar-->
+                <div class="author-card pb-3">
+                    <div class="author-card-cover" style="background-image: url(/images/bg-01.jpg);"></div>
+                    <div class="author-card-profile">
+                        <div class="author-card-avatar"><img src="/images/blog-item-01.png" alt="Daniel Adams">
+                        </div>
+                        <div class="author-card-details">
+                            <h1 class="author-card-name text-lg">
+                                <h4>Update Profile</h4>
+                            </h1><span class="author-card-position"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wizard">
+                    <nav class="list-group list-group-flush">
+                        <a class="list-group-item active" href="#"><i class="fe-icon-user text-muted"></i>User profile</a></a>
+                        <a class="list-group-item" href="#delete">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div><i class="fe-icon-shopping-bag mr-1 text-muted"></i>
+                                    <div class="d-inline-block font-weight-medium text-uppercase">Delete Account</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item" href="/loginpage">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div><i class="fe-icon-heart mr-1 text-muted"></i>
+                                    <div class="d-inline-block font-weight-medium text-uppercase">Log out</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item" href="/homepage">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div><i class="fe-icon-tag mr-1 text-muted"></i>
+                                    <div class="d-inline-block font-weight-medium text-uppercase">Home</div>
+                                </div>
+                            </div>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <!-- Profile Settings-->
+            <div class="col-lg-8 pb-5">
+                <form class="row" action="/user_name" method="POST">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="account-fn"> <i style="color: aliceblue;">Update Username</i> </label> <br>
+                            <input class="form-control" type="text" id="account-fn" name="username"
+                                placeholder="Enter Username" required>
+                            <br>
+                            <input class="form-control" type="password" id="account-pass" name="password"
+                                placeholder="Enter Password" required> <br>
+                            <button class="btn btn-style-1 btn-primary" type="button" data-toast=""
+                                data-toast-position="topRight" data-toast-type="success"
+                                data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
+                                data-toast-message="Your Username updated successfuly.">Submit</button>
+                        </div>
+                    </form>
+                        <form action="/upadte_password" method="POST">
+                            <div class="form-group">
+                                <label for="account-fn"><i style="color: aliceblue;">Update Password</i></label> <br>
+                                <input class="form-control" type="password" id="account-pass" name="password" placeholder="Current Password"
+                                    required> <br>
+                                <input class="form-control" type="password" id="account-pass" name="password" placeholder="New password"
+                                    required> <br>
+                                <input class="form-control" type="password" id="account-pass" name="password" placeholder="Confirm password"
+                                    required> <br>
+                                <button class="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight"
+                                    data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
+                                    data-toast-message="Your email updated successfuly.">Submit</button>
+                        </form>
+                        </div>
+                        <form action="/upadte_email" method="POST">
+                        <div class="form-group">
+                            <label for="account-email"><i style="color: aliceblue;">Update Email</i></label> <br>
+                            <input class="form-control" type="email" id="account-email" name="email" placeholder="Enter Email"
+                                required> <br>
+                            <input class="form-control" type="password" id="account-pass" name="password"
+                                placeholder="Enter password" required> <br>
+                            <button class="btn btn-style-1 btn-primary" type="button" data-toast-position="topRight" data-toast-type="success"data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
+                                data-toast-message="Your email updated successfuly.">Submit</button> </form> <br> <br>
+                        </div>
+                <div class="form-group">
+                <form action="/delete_user" method="POST">
+                    <label for="account-pass"><i id="delete">Delete Account</i></label>
+                    <input class="form-control" type="password" id="account-pass" name="password"
+                        placeholder="Enter your password"> <br>
+                     <button class="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight"
+                    data-toast-type="success"  data-toast-icon="fe-icon-check-circle" data-toast-title="Success!"
+                    data-toast-message="Your profile is successfuly Deleted !.">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+<script src="/scripts/bootstrap.bundle.min.js"></script>
+</html>
