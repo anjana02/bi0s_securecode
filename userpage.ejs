@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/userconfig.css" />
+	</head>
+<style>
+input {
+	display: block;
+	height: 50px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	padding: 0 10px;
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: 300;
+}
+</style>
+	<body style="background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.5)),
+	url(images/background.jpg);height: 100vh; background-size: 100% 100%;
+	background-position: center;">
+	<div class="heading">
+		<h3><span>&nbsp;&nbsp; Data Vault &nbsp;&nbsp;</span></h3>
+	</div>
+	<center>
+		<h2 style="color: #fff; padding: 50 50;"><%= username %></h2>
+		<table>
+			<tr>
+				<form action = '/upload_file' method = 'post' enctype = "multipart/form-data">
+					<td colspan = '2' valign = 'middle'>
+						<input type = 'file' name = 'foo' value = 'Upload Files' required class="buttonforupload">
+					</td>
+					<td valign = 'middle'>
+						<input type = 'Submit' class = 'login-button' value = 'Upload'>
+					</td>
+				</form>
+			</tr>
+			<br>
+			<% user_files.forEach(function(file) { %>
+				<tr>
+					<td>
+						<font class="filesnames"color = 'black' size = '3'><%= file %></font>
+					</td>
+					<td>
+						<form action='/delete_file' method = 'post'>
+							<input type = 'hidden' name = 'delete_file' value = '<%= file %>'>
+							<input type = 'submit' class = 'login-button delete' value = 'Delete this File'>
+						</form>
+					</td>
+					<td>
+						<a target = '_blank' rel = 'noreferrer noopener' href = '/users/<%= username %>/<%= file %>'><button class = 'login-button'>Download</button></a>
+					</td>
+				</tr>
+			<% }); %>
+		</table>
+		<p>
+			<font color = 'black' size = '3'><%= data %></font>
+		</p>
+	<center>
+	<form action = '/delete_account' method = 'post'>
+		<button type = 'submit' class="login-button" value="Delete Account">
+			Delete Account
+		</button>
+	</form>
+	<form action = '/logout' method = 'post'>
+		<button type = 'submit' class="login-button" value="Logout">
+			Logout
+		</button>
+	</form>
+	</body>
+</html>
